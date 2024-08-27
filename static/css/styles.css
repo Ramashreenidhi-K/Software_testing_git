@@ -1,0 +1,242 @@
+/* Navbar styling */
+nav {
+  background-color: #333;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1em;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+nav ul li a.active {
+  font-weight: bold;
+}
+
+nav ul li::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #007bff;
+  transition: width 0.3s;
+}
+
+nav ul li:hover::after {
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em;
+}
+
+.products {
+  display: flex;
+  gap: 2em;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product {
+  background-color: white;
+  padding: 1em;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.product h2 {
+  margin: 1em 0 0.5em;
+}
+
+.product p {
+  margin: 0.5em 0;
+}
+
+.add-to-cart,
+.remove,
+.continue-shopping {
+  display: inline-block;
+  padding: 0.5em 1em;
+  color: white;
+  background-color: #007bff;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-top: 1em;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
+.remove {
+  background-color: #dc3545;
+}
+
+.remove:hover {
+  background-color: #c82333;
+}
+
+.continue-shopping {
+  background-color: #28a745;
+}
+
+.continue-shopping:hover {
+  background-color: #218838;
+}
+
+/* Animation for successful login */
+@keyframes fireworks {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+.fireworks {
+  font-size: 3em;
+  color: #ffcc00;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fireworks 3s ease-in-out;
+  display: none; /* Hidden by default */
+}
+
+.fireworks.active {
+  display: block; /* Show when active */
+}
+
+/* Additional styling for login form */
+.login-container {
+  max-width: 400px;
+  margin: 5em auto;
+  padding: 2em;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  color: #333;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75em 1.5em;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.messages {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 1.5em;
+  color: #dc3545;
+}
+
+.messages li {
+  margin-bottom: 0.5em;
+}
+
+/* Cart table styling */
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2em;
+  text-align: left;
+}
+
+.cart-table th,
+.cart-table td {
+  padding: 1em;
+  border: 1px solid #ddd;
+}
+
+.cart-table th {
+  background-color: #f4f4f4;
+}
+
+.cart-actions {
+  margin-top: 2em;
+  text-align: center;
+}

@@ -1,0 +1,52 @@
+{% extends "base.html" %} {% block content %}
+<div class="login-container">
+  <h1>Login Page</h1>
+  <form action="{{ url_for('login') }}" method="POST" id="login-form">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" required />
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" required />
+    </div>
+    <button type="submit" class="btn">Login</button>
+  </form>
+  <ul class="messages">
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if
+    messages %} {% for category, message in messages %}
+    <li class="{{ category }}">{{ message }}</li>
+    {% endfor %} {% endif %} {% endwith %}
+  </ul>
+  <div class="fireworks" id="fireworks">🎆</div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  document
+    .getElementById('login-form')
+    .addEventListener('submit', function (event) {
+      event.preventDefault();
+      const form = this;
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', form.action, true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          if (xhr.responseText.includes('Invalid username or password')) {
+            form.submit();
+          } else {
+            document.getElementById('fireworks').classList.add('active');
+            setTimeout(() => {
+              form.submit();
+            }, 3000); // Delay to show animation
+          }
+        }
+      };
+
+      const formData = new FormData(form);
+      const encodedData = new URLSearchParams(formData).toString();
+      xhr.send(encodedData);
+    });
+</script>
+{% endblock %}

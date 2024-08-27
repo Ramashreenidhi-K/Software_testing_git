@@ -1,0 +1,6 @@
+test_name,expected_outcome,assertion
+test_login_valid,Home Page,element_text
+test_add_to_cart,product.id,element_exists
+test_remove_from_cart,0,cart_item_count
+test_about_page,About Us,element_text
+test_login_invalid,Invalid username or password,element_text
